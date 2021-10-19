@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Instructions</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .typing-wrapper {
+            height: 5vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .typing-words {
+            color: white;
+            width: 35ch;
+            animation: typing 2s steps(35), blink .5s step-end infinite alternate;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid;
+            font-family: monospace;
+            font-size: 2em;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent
+            }
+        }
+    </style>
+</head>
+
+<body onload="setTimeout(()=>{location.assign('./visualise.html')}, 9000);">
+    <div class="typing-wrapper">
+        <div class="typing-words">Welcome to the instructions page!!</div>
+    </div>
+    <div class="min-h-screen bg-black-100 py-6 flex flex-col justify-center mx-auto sm:py-12">
+        <div class="">
+          <div class="h-auto py-20 px-10 w-2/4 bg-white flex flex-col space-y-10  mx-auto rounded-3xl shadow-xl hover:rotate-1 transition-transform">
+          <h1 class=" font-medium text-black text-xl tracking-wide">About</h1>
+            <h2 class="font-normal tracking-wide text-2xl text-black ">In this game you can experience our solar system and manipulate planet even view them at different angles and get info about them.</h2>
+            <div class="flex flex-col">
+              <backquotes class="font-normal text-black text-sm tracking-wider">Made by </backquotes>
+              <backqoutes class="font-normal text-black text-sm tracking-wider"">Arnav sharma and Sanat gupta</backqoutes>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>

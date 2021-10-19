@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <style>
+    body {
+      background-color: black;
+    }
+
+    button {
+      position: relative;
+      padding: 15px 45px;
+      font-size: 10px;
+      font-weight: bolder;
+      text-transform: uppercase;
+      color: #59C9E6;
+      background: #101C2E;
+      border: 1px solid #59C9E6;
+      box-shadow: 0 0 0 2px #000000;
+      box-sizing: border-box;
+      z-index: auto;
+      cursor: pointer;
+    }
+
+    button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      border: 1px solid #ffffff;
+      transform: translate(-11px, -10px);
+      z-index: -1;
+      transition: transform 0.1s linear;
+
+    }
+
+    button::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      border: 1px solid #ffffff;
+      transform: translate(11px, 10px);
+      z-index: -1;
+      transition: transform 0.08s linear;
+    }
+
+    button:hover::after,
+    button:hover::before {
+      transform: translate(0, 0);
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    button:active {
+      opacity: 0.8;
+      outline: none;
+      box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.8);
+    }
+
+    button:active::before {
+      transform: translate(0, 0) scale(1.1, 1.3);
+      opacity: 0.3;
+      transition: transform 0.4s cubic-bezier(0, 1, 0, 1.5);
+    }
+
+    button:active::after {
+      transform: translate(0, 0) scale(1.3, 1.7);
+      opacity: 0.6;
+      transition: transform 0.4s cubic-bezier(0, 1, 0, 1.5);
+    }
+
+    .space {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      top: calc(50vh - 150px);
+      left: calc(50% - 150px);
+      background-color: black;
+    }
+
+    .circle {
+      width: 80px;
+      height: 80px;
+      background-color: yellow;
+      border: 1px solid transparent;
+      border-radius: 50%;
+      position: absolute;
+      top: calc(50% - 40px);
+      left: calc(50% - 40px);
+      transition: 1s;
+    }
+
+    .f-circle {
+      position: absolute;
+      width: 95%;
+      height: 95%;
+      left: 2.5%;
+      top: 2.5%;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      animation: rotate 5s linear 0s infinite;
+    }
+
+    .f-circle::after {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      position: relative;
+      left: 80px;
+      border-radius: 50%;
+      background-color: #72757e;
+    }
+
+    /* second circle */
+    .s-circle {
+      width: 75%;
+      height: 75%;
+      position: absolute;
+      top: calc(50% - 37.5%);
+      left: calc(50% - 37.5%);
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      animation: rotate 4s linear 0s infinite;
+    }
+
+    .s-circle::after {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      position: relative;
+      left: 60px;
+      border-radius: 50%;
+      background-color: orange;
+    }
+
+    /* third circle */
+    .t-circle {
+      width: 55%;
+      height: 55%;
+      position: absolute;
+      left: calc(50% - 27.5%);
+      top: calc(50% - 27.5%);
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      animation: rotate 2s linear 0s infinite;
+    }
+
+    .t-circle::after {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      position: relative;
+      left: 40px;
+      border-radius: 50%;
+      background-color: #7f5af0;
+    }
+
+    .circle:hover {
+      width: 180px;
+      height: 180px;
+      top: calc(50% - 90px);
+      left: calc(50% - 90px);
+      background-color: red;
+    }
+
+    .wrapper {
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    .typing-wrapper {
+      height: 5vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .typing-words {
+      color: white;
+      width: 18ch;
+      animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid;
+      font-family: monospace;
+      font-size: 2em;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(360deg);
+      }
+
+      to {
+        transform: rotate(0deg);
+      }
+    }
+
+    @keyframes typing {
+      from {
+        width: 0
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent
+      }
+    }
+
+    /* css scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="typing-wrapper">
+    <div class="typing-words">Welcome Explorer.</div>
+  </div>
+  <div class="space">
+    <div class="f-circle"></div>
+    <div class="s-circle"></div>
+    <div class="t-circle"></div>
+    <div class="circle"></div>
+  </div>
+  <div class="wrapper">
+    <button
+      onclick="sunExpand();setInterval(() => {location.assign('https://github.com/sanatg/explorer')}, 2000)">Source</button>
+    <button onclick="sunExpand();setInterval(() => {location.assign('./instructions.html')}, 2000)">Instructions</button>
+    <button onclick="sunExpand();setInterval(() => {location.assign('./visualise.html')}, 2000)">initalise</button>
+  </div>
+  <script type="text/javascript">
+    var style = document.createElement('style');
+    var css = '.circle{background-color:red;width:180px;height:180px;top:calc(50% - 90px);left:calc(50% - 90px);}.f-circle::after{background-color:red}.s-circle::after{background-color:red}.t-circle::after{background-color:red}';
+    function sunExpand() {
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+        style.appendChild(document.createTextNode(css));
+      }
+      document.getElementsByTagName('head')[0].appendChild(style);
+    }
+  </script>
+</body>
+
+</html>
